@@ -208,6 +208,7 @@ hduser@ip-172-31-19-118:~$ vi $HADOOP_HOME/etc/hadoop/hadoop-env.sh
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ```
 * Save the file and quit
+### Edit core-site.xml File
 
 
 
