@@ -208,19 +208,20 @@ hduser@ip-172-31-19-118:~$ vi $HADOOP_HOME/etc/hadoop/hadoop-env.sh
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ```
 * Save the file and quit
+
 ### Edit core-site.xml File
-* core-site.xml file defines HDFS and Hadoop core properties.
-* To set up Hadoop in a pseudo-distributed mode, you need to specify the URL for your NameNode, and the temporary directory Hadoop uses for the map and reduce process.	
-* Open the core-site.xml file in a text editor
+* The core-site.xml file defines HDFS and Hadoop core properties.
+* To set up Hadoop in a pseudo-distributed mode, you need to specify the URL for your NameNode, and the temporary directory Hadoop uses for the map and reduce process.
+* Open the core-site.xml
 ``` bash
-$HADOOP_HOME/etc/hadoop/core-site.xml
+vi $HADOOP_HOME/etc/hadoop/core-site.xml
 ```
 * Add the following configuration to override the default values for the temporary directory and add your HDFS URL to replace the default local file system setting
 ```
 <configuration>
 <property>
   <name>hadoop.tmp.dir</name>
-  <value>/home/hdoop/tmpdata</value>
+  <value>/home/hduser/tmpdata</value>
 </property>
 <property>
   <name>fs.default.name</name>
@@ -240,11 +241,11 @@ vi $HADOOP_HOME/etc/hadoop/hdfs-site.xml
 <configuration>
 <property>
   <name>dfs.data.dir</name>
-  <value>/home/hdoop/dfsdata/namenode</value>
+  <value>/home/hduser/dfsdata/namenode</value>
 </property>
 <property>
   <name>dfs.data.dir</name>
-  <value>/home/hdoop/dfsdata/datanode</value>
+  <value>/home/hduser/dfsdata/datanode</value>
 </property>
 <property>
   <name>dfs.replication</name>
@@ -261,27 +262,11 @@ vi $HADOOP_HOME/etc/hadoop/mapred-site.xml
 * Add the following configuration to change the default MapReduce framework name value to yarn
 * Add the following configuration to the file
 ```
-<configuration>
-<property>
-  <name>yarn.nodemanager.aux-services</name>
-  <value>mapreduce_shuffle</value>
-</property>
-<property>
-  <name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
-  <value>org.apache.hadoop.mapred.ShuffleHandler</value>
-</property>
-<property>
-  <name>yarn.resourcemanager.hostname</name>
-  <value>127.0.0.1</value>
-</property>
-<property>
-  <name>yarn.acl.enable</name>
-  <value>0</value>
-</property>
-<property>
-  <name>yarn.nodemanager.env-whitelist</name>   
-  <value>JAVA_HOME,HADOOP_COMMON_HOME,HADOOP_HDFS_HOME,HADOOP_CONF_DIR,CLASSPATH_PERPEND_DISTCACHE,HADOOP_YARN_HOME,HADOOP_MAPRED_HOME</value>
-</property>
+<configuration> 
+<property> 
+  <name>mapreduce.framework.name</name> 
+  <value>yarn</value> 
+</property> 
 </configuration>
 ```
 ### Edit yarn-site.xml File
@@ -363,9 +348,12 @@ Starting nodemanagers
 * check if all the daemons are active and running as Java processes* 
 ``` bash
 hduser@ip-172-31-19-118:~/hadoop-3.2.1/sbin$ jps
-21626 Jps
-21307 NodeManager
-21103 ResourceManager
+27315 ResourceManager
+26806 DataNode
+27511 NodeManager
+26617 NameNode
+27083 SecondaryNameNode
+27838 Jps
 ```
 
 
