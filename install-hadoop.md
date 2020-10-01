@@ -140,7 +140,13 @@ hduser@ip-172-31-19-118:~$ wget https://mirrors.estointernet.in/apache/hadoop/co
 ```
 * extract the file
 ``` bash
+hduser@ip-172-31-19-118:~$ ls
+hadoop-3.2.1.tar.gz
+
 tar -zxvf hadoop-3.2.1.tar.gz
+
+hduser@ip-172-31-19-118:~$ ls
+hadoop-3.2.1  hadoop-3.2.1.tar.gz
 ```
 ### Setup hadoop
 * This setup, also called pseudo-distributed mode, allows each Hadoop daemon to run as a single Java process. A Hadoop environment is configured by editing a set of configuration files
@@ -150,6 +156,26 @@ tar -zxvf hadoop-3.2.1.tar.gz
 ** hdfs-site.xml
 ** mapred-site-xml
 ** yarn-site.xml
+### Configure Hadoop Environment Variables in .bashrc
+* open the .bashrc file
+``` bash
+nano .bashrc
+```
+* add the following configuration at the end of the file
+```
+#Hadoop Related Options
+export HADOOP_HOME=/home/hdoop/hadoop-3.2.1
+export HADOOP_INSTALL=$HADOOP_HOME
+export HADOOP_MAPRED_HOME=$HADOOP_HOME
+export HADOOP_COMMON_HOME=$HADOOP_HOME
+export HADOOP_HDFS_HOME=$HADOOP_HOME
+export YARN_HOME=$HADOOP_HOME
+export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
+export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
+export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
+```
+
+
 
 
 
