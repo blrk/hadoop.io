@@ -362,6 +362,8 @@ hduser@ip-172-31-19-118:~/hadoop-3.2.1/sbin$ jps
 hduser@ip-172-31-19-118:~$ curl http://localhost:9870
 ```
 ### Access Hadoop UI from Browser
+* Add port number 9870 to the security group rules of hadoop instance
+![](https://github.com/blrk/hadoop.io/blob/master/img/inbound-rules.png)
 * In your browser URl type the following address : http://\<public-ip-of-your-instance\>:9870
 * the following page appears
 ![](https://github.com/blrk/hadoop.io/blob/master/img/hadoop-overview.png)
