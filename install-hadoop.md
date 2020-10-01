@@ -322,6 +322,20 @@ Starting datanodes
 Starting secondary namenodes [ip-172-31-19-118]
 ip-172-31-19-118: Warning: Permanently added 'ip-172-31-19-118,172.31.19.118' (ECDSA) to the list of known hosts.
 ```
+* The system takes a few moments to initiate the necessary nodes
+* Once the namenode, datanodes, and secondary namenode are up and running, start the YARN resource and nodemanagers
+``` bash
+hduser@ip-172-31-19-118:~/hadoop-3.2.1/sbin$ ./start-yarn.sh
+Starting resourcemanager
+Starting nodemanagers
+```
+* check if all the daemons are active and running as Java processes* 
+``` bash
+hduser@ip-172-31-19-118:~/hadoop-3.2.1/sbin$ jps
+21626 Jps
+21307 NodeManager
+21103 ResourceManager
+```
 
 
 
