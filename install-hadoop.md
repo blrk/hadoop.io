@@ -131,6 +131,25 @@ ubuntu@ip-172-31-90-231:~$ javac -version
 javac 1.8.0_265
 ```
 ### Install hadoop
+* visit this link : https://hadoop.apache.org/releases.html
+* Chosee the version you want to install and click the link
+* I have selected 3.2.1 binary : https://www.apache.org/dyn/closer.cgi/hadoop/common/hadoop-3.2.1/hadoop-3.2.1.tar.gz
+* Copy the link address of tar.gz file and download it
+``` bash
+hduser@ip-172-31-19-118:~$ wget https://mirrors.estointernet.in/apache/hadoop/common/hadoop-3.2.1/hadoop-3.2.1.tar.gz
+```
+* extract the file
+``` bash
+tar -zxvf hadoop-3.2.1.tar.gz
+```
+### Setup hadoop
+* This setup, also called pseudo-distributed mode, allows each Hadoop daemon to run as a single Java process. A Hadoop environment is configured by editing a set of configuration files
+** bashrc
+** hadoop-env.sh
+** core-site.xml
+** hdfs-site.xml
+** mapred-site-xml
+** yarn-site.xml
 
 
 
