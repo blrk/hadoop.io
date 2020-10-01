@@ -184,7 +184,17 @@ hduser@ip-172-31-19-118:~$ echo $HADOOP_HOME
 ### Edit hadoop-env.sh File
 * The hadoop-env.sh file serves as a master file to configure YARN, HDFS, MapReduce, and Hadoop-related project settings.
 * When setting up a single node Hadoop cluster, you need to define which Java implementation is to be utilized. Use the previously created $HADOOP_HOME variable to access the hadoop-env.sh file:
-* 
+* Find the java path
+``` bash
+hduser@ip-172-31-19-118:~$ whereis java
+java: /usr/bin/java /usr/share/java /usr/share/man/man1/java.1.gz
+```
+* copy : /usr/bin/java
+* open the following file in the vi editor
+``` bash
+hduser@ip-172-31-19-118:~$ vi $HADOOP_HOME/etc/hadoop/hadoop-env.sh
+```
+
 
 
 
