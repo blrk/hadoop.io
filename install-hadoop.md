@@ -194,6 +194,17 @@ java: /usr/bin/java /usr/share/java /usr/share/man/man1/java.1.gz
 ``` bash
 hduser@ip-172-31-19-118:~$ vi $HADOOP_HOME/etc/hadoop/hadoop-env.sh
 ```
+* seach the file : /export JAVA
+* locate the line 
+``` bash
+# export JAVA_HOME=
+```
+* uncomment the line and paste the path
+``` bash 
+export JAVA_HOME=/usr/bin/java
+```
+
+
 
 
 
