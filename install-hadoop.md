@@ -112,9 +112,9 @@ hduser@ip-172-31-19-118:~$ exit
 logout
 Connection to localhost closed.
 ```
-### Update the isntance
+### Update the instance
 ``` bash
-sudo apt install openjdk-8-jdk -y
+sudo apt-get update -y
 ```
 ### Install Java
 * use the following command to install java
