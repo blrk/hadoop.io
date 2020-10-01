@@ -362,7 +362,7 @@ hduser@ip-172-31-19-118:~/hadoop-3.2.1/sbin$ jps
 hduser@ip-172-31-19-118:~$ curl http://localhost:9870
 ```
 ### Access Hadoop UI from Browser
-* In your browser URl type the following address : http://<public-ip-of-your-instance>:9870
+* In your browser URl type the following address : http://\<public-ip-of-your-instance\>:9870
 
 
 
