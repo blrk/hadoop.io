@@ -193,7 +193,7 @@ hduser@ip-172-31-19-118:~$ cd  /usr/lib/jvm
 hduser@ip-172-31-19-118:/usr/lib/jvm$ ls
 java-1.8.0-openjdk-amd64  java-8-openjdk-amd64
 ```
-* copy : /usr/lib/jvm/java-8-openjdk-amd64
+* copy : ``` /usr/lib/jvm/java-8-openjdk-amd64 ```
 * open the following file in the vi editor
 ``` bash
 hduser@ip-172-31-19-118:~$ vi $HADOOP_HOME/etc/hadoop/hadoop-env.sh
