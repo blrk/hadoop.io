@@ -286,6 +286,45 @@ vi $HADOOP_HOME/etc/hadoop/mapred-site.xml
 ```
 ### Format HDFS NameNode
 * It is important to format the NameNode before starting Hadoop services for the first time
+``` bash
+hdfs namenode -format
+```
+* You can see the following output at the end of the scrolling messages
+```
+/************************************************************
+SHUTDOWN_MSG: Shutting down NameNode at ip-172-31-19-118/172.31.19.118
+************************************************************/
+```
+* shutdown notification signifies the end of the NameNode format process
+### Start Hadoop Cluster
+* Navigate to the following location
+``` bash
+hduser@ip-172-31-19-118:~$ cd hadoop-3.2.1/sbib/
+```
+* list the files
+``` bash
+hduser@ip-172-31-19-118:~/hadoop-3.2.1/sbin$ ls
+FederationStateStore     start-all.sh         stop-balancer.sh
+distribute-exclude.sh    start-balancer.sh    stop-dfs.cmd
+hadoop-daemon.sh         start-dfs.cmd        stop-dfs.sh
+hadoop-daemons.sh        start-dfs.sh         stop-secure-dns.sh
+httpfs.sh                start-secure-dns.sh  stop-yarn.cmd
+kms.sh                   start-yarn.cmd       stop-yarn.sh
+mr-jobhistory-daemon.sh  start-yarn.sh        workers.sh
+refresh-namenodes.sh     stop-all.cmd         yarn-daemon.sh
+start-all.cmd            stop-all.sh          yarn-daemons.sh
+```
+* Run the file start-dfs.sh 
+``` bash
+hduser@ip-172-31-19-118:~/hadoop-3.2.1/sbin$ ./start-dfs.sh 
+Starting namenodes on [localhost]
+Starting datanodes
+Starting secondary namenodes [ip-172-31-19-118]
+ip-172-31-19-118: Warning: Permanently added 'ip-172-31-19-118,172.31.19.118' (ECDSA) to the list of known hosts.
+```
+
+
+
 
 
 
