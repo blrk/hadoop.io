@@ -107,30 +107,6 @@ The authenticity of host 'localhost (127.0.0.1)' can't be established.
 ECDSA key fingerprint is SHA256:/aCK5yu5g2UgEAG2oNhjyMQ9ZW8AZ4uZJekVl/oAp5M.
 Are you sure you want to continue connecting (yes/no)? yes
 
-Warning: Permanently added 'localhost' (ECDSA) to the list of known hosts.
-Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 5.3.0-1035-aws x86_64)
-
- * Documentation:  https://help.ubuntu.com
- * Management:     https://landscape.canonical.com
- * Support:        https://ubuntu.com/advantage
-
-  System information as of Thu Oct  1 04:53:08 UTC 2020
-
-  System load:  0.0               Processes:           99
-  Usage of /:   21.5% of 9.63GB   Users logged in:     1
-  Memory usage: 22%               IP address for eth0: 172.31.19.118
-  Swap usage:   0%
-
-
-36 packages can be updated.
-31 updates are security updates.
-
-New release '20.04.1 LTS' available.
-Run 'do-release-upgrade' to upgrade to it.
-
-The programs included with the Ubuntu system are free software;
-the exact distribution terms for each program are described in the
-individual files in /usr/share/doc/*/copyright.
 
 hduser@ip-172-31-19-118:~$ exit
 logout
@@ -154,6 +130,7 @@ OpenJDK 64-Bit Server VM (build 25.265-b01, mixed mode)
 ubuntu@ip-172-31-90-231:~$ javac -version
 javac 1.8.0_265
 ```
+### Install hadoop
 
 
 
