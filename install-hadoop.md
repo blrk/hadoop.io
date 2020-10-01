@@ -174,6 +174,13 @@ export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
 export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
 export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
 ```
+* apply the changes to the current running environment 
+``` bash
+hduser@ip-172-31-19-118:~$ vi .bashrc
+hduser@ip-172-31-19-118:~$ source .bashrc
+hduser@ip-172-31-19-118:~$ echo $HADOOP_HOME 
+/home/hdoop/hadoop-3.2.1
+```
 
 
 
