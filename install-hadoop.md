@@ -209,7 +209,49 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ```
 * Save the file and quit
 ### Edit core-site.xml File
-
+* core-site.xml file defines HDFS and Hadoop core properties.
+* To set up Hadoop in a pseudo-distributed mode, you need to specify the URL for your NameNode, and the temporary directory Hadoop uses for the map and reduce process.	
+* Open the core-site.xml file in a text editor
+``` bash
+$HADOOP_HOME/etc/hadoop/core-site.xml
+```
+* Add the following configuration to override the default values for the temporary directory and add your HDFS URL to replace the default local file system setting
+```
+<configuration>
+<property>
+  <name>hadoop.tmp.dir</name>
+  <value>/home/hdoop/tmpdata</value>
+</property>
+<property>
+  <name>fs.default.name</name>
+  <value>hdfs://127.0.0.1:9000</value>
+</property>
+</configuration>
+```
+### Edit hdfs-site.xml File
+* The properties in the hdfs-site.xml file govern the location for storing node metadata, fsimage file, and edit log file. Configure the file by defining the NameNode and DataNode storage directories.
+* Additionally, the default dfs.replication value of 3 needs to be changed to 1 to match the single node setup.
+* open hdfs-site.xml file 
+``` bash
+vi $HADOOP_HOME/etc/hadoop/hdfs-site.xml
+```
+* Add the following configuration to the file and, if needed, adjust the NameNode and DataNode directories to your custom locations
+``` 
+<configuration>
+<property>
+  <name>dfs.data.dir</name>
+  <value>/home/hdoop/dfsdata/namenode</value>
+</property>
+<property>
+  <name>dfs.data.dir</name>
+  <value>/home/hdoop/dfsdata/datanode</value>
+</property>
+<property>
+  <name>dfs.replication</name>
+  <value>1</value>
+</property>
+</configuration>
+```
 
 
 
