@@ -11,9 +11,38 @@
 chmod 400 hadoop.pem
 ssh -i hadoop.pem ubuntu@<public-ip-of-instance>
 ```
-* switch to root user mode
+### Create a hadoop user
 ``` bash
-sudo su -
+ubuntu@ip-172-31-19-118:~$ sudo addgroup hadoop
+
+ubuntu@ip-172-31-19-118:~$ sudo adduser --ingroup hadoop hduser
+Adding user `hduser' ...
+Adding new user `hduser' (1002) with group `hadoop' ...
+Creating home directory `/home/hduser' ...
+Copying files from `/etc/skel' ...
+Enter new UNIX password: 
+Retype new UNIX password: 
+passwd: password updated successfully
+Changing the user information for hduser
+Enter the new value, or press ENTER for the default
+	Full Name []: hadoop user
+	Room Number []: 
+	Work Phone []: 
+	Home Phone []: 
+	Other []: 
+Is the information correct? [Y/n] y
+
+ubuntu@ip-172-31-19-118:~$ sudo adduser  hduser sudo
+Adding user `hduser' to group `sudo' ...
+Adding user hduser to group sudo
+Done.
+```
+### Login as hadoop user
+``` bash
+su - hduser
+Password: 
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
 ```
 ### Create a SSH keypair
 * run the following commands in the terminal of hadoop node
@@ -45,11 +74,39 @@ authorized_keys  id_rsa  id_rsa.pub
 ```
 ### Add the public key to the authorized_keys file and verify 
 ``` bash
-ubuntu@ip-172-31-90-231:~$ cat .ssh/id_rsa.pub >> .ssh/authorized_keys 
-ubuntu@ip-172-31-90-231:~$ ssh localhost
+hduser@ip-172-31-19-118:~$ ssh-keygen 
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/hduser/.ssh/id_rsa): 
+Created directory '/home/hduser/.ssh'.
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/hduser/.ssh/id_rsa.
+Your public key has been saved in /home/hduser/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:re2zzaBeUUs2PvTOXnXYBOfUHhFsx3JoMX3KoGH1wwE hduser@ip-172-31-19-118
+The key's randomart image is:
++---[RSA 2048]----+
+|           .E.*B*|
+|          o .o+@B|
+|         . o*+==*|
+|         ..* +o=.|
+|        S o + o +|
+|         o . +  o|
+|        . +   o .|
+|         +.+ . . |
+|       .o ooo .  |
++----[SHA256]-----+
+
+hduser@ip-172-31-19-118:~$ ls .ssh/
+id_rsa  id_rsa.pub
+
+hduser@ip-172-31-19-118:~$ cat .ssh/id_rsa.pub >> .ssh/authorized_keys
+
+hduser@ip-172-31-19-118:~$ ssh localhost
 The authenticity of host 'localhost (127.0.0.1)' can't be established.
-ECDSA key fingerprint is SHA256:vL7CqrCG+NOa1R8u71z495qIsor33rIGGcUf/uibups.
+ECDSA key fingerprint is SHA256:/aCK5yu5g2UgEAG2oNhjyMQ9ZW8AZ4uZJekVl/oAp5M.
 Are you sure you want to continue connecting (yes/no)? yes
+
 Warning: Permanently added 'localhost' (ECDSA) to the list of known hosts.
 Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 5.3.0-1035-aws x86_64)
 
@@ -57,26 +114,25 @@ Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 5.3.0-1035-aws x86_64)
  * Management:     https://landscape.canonical.com
  * Support:        https://ubuntu.com/advantage
 
-  System information as of Thu Oct  1 02:03:50 UTC 2020
+  System information as of Thu Oct  1 04:53:08 UTC 2020
 
-  System load:  0.0               Processes:           95
-  Usage of /:   11.7% of 9.63GB   Users logged in:     1
-  Memory usage: 17%               IP address for eth0: 172.31.90.231
+  System load:  0.0               Processes:           99
+  Usage of /:   21.5% of 9.63GB   Users logged in:     1
+  Memory usage: 22%               IP address for eth0: 172.31.19.118
   Swap usage:   0%
 
 
-0 packages can be updated.
-0 updates are security updates.
+36 packages can be updated.
+31 updates are security updates.
 
 New release '20.04.1 LTS' available.
 Run 'do-release-upgrade' to upgrade to it.
 
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
 
-Last login: Thu Oct  1 01:58:30 2020 from 157.46.114.116
-To run a command as administrator (user "root"), use "sudo <command>".
-See "man sudo_root" for details.
-
-ubuntu@ip-172-31-90-231:~$ exit
+hduser@ip-172-31-19-118:~$ exit
 logout
 Connection to localhost closed.
 ```
