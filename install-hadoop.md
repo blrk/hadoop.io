@@ -284,6 +284,37 @@ vi $HADOOP_HOME/etc/hadoop/mapred-site.xml
 </property>
 </configuration>
 ```
+### Edit yarn-site.xml File
+* The yarn-site.xml file is used to define settings relevant to YARN. It contains configurations for the Node Manager, Resource Manager, Containers, and Application Master
+* Open the yarn-site.xml file
+``` bash
+vi $HADOOP_HOME/etc/hadoop/yarn-site.xml
+```
+* Add the following configuration to the file
+``` 
+<configuration>
+<property>
+  <name>yarn.nodemanager.aux-services</name>
+  <value>mapreduce_shuffle</value>
+</property>
+<property>
+  <name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
+  <value>org.apache.hadoop.mapred.ShuffleHandler</value>
+</property>
+<property>
+  <name>yarn.resourcemanager.hostname</name>
+  <value>127.0.0.1</value>
+</property>
+<property>
+  <name>yarn.acl.enable</name>
+  <value>0</value>
+</property>
+<property>
+  <name>yarn.nodemanager.env-whitelist</name>   
+  <value>JAVA_HOME,HADOOP_COMMON_HOME,HADOOP_HDFS_HOME,HADOOP_CONF_DIR,CLASSPATH_PERPEND_DISTCACHE,HADOOP_YARN_HOME,HADOOP_MAPRED_HOME</value>
+</property>
+</configuration>
+```
 ### Format HDFS NameNode
 * It is important to format the NameNode before starting Hadoop services for the first time
 ``` bash
@@ -316,7 +347,7 @@ start-all.cmd            stop-all.sh          yarn-daemons.sh
 ```
 * Run the file start-dfs.sh 
 ``` bash
-hduser@ip-172-31-19-118:~/hadoop-3.2.1/sbin$ ./start-dfs.sh 
+hduser@ip-172-31-19-118:~/hadoop-3.2.1/sbin$ ./start-dfs.sh
 Starting namenodes on [localhost]
 Starting datanodes
 Starting secondary namenodes [ip-172-31-19-118]
