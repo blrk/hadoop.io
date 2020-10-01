@@ -186,10 +186,14 @@ hduser@ip-172-31-19-118:~$ echo $HADOOP_HOME
 * When setting up a single node Hadoop cluster, you need to define which Java implementation is to be utilized. Use the previously created $HADOOP_HOME variable to access the hadoop-env.sh file:
 * Find the java path
 ``` bash
-hduser@ip-172-31-19-118:~$ whereis java
-java: /usr/bin/java /usr/share/java /usr/share/man/man1/java.1.gz
+hduser@ip-172-31-19-118:~$ whereis jvm
+jvm: /usr/lib/jvm
+
+hduser@ip-172-31-19-118:~$ cd  /usr/lib/jvm
+hduser@ip-172-31-19-118:/usr/lib/jvm$ ls
+java-1.8.0-openjdk-amd64  java-8-openjdk-amd64
 ```
-* copy : /usr/bin/java
+* copy : /usr/lib/jvm/java-8-openjdk-amd64
 * open the following file in the vi editor
 ``` bash
 hduser@ip-172-31-19-118:~$ vi $HADOOP_HOME/etc/hadoop/hadoop-env.sh
@@ -201,8 +205,10 @@ hduser@ip-172-31-19-118:~$ vi $HADOOP_HOME/etc/hadoop/hadoop-env.sh
 ```
 * uncomment the line and paste the path
 ``` bash 
-export JAVA_HOME=/usr/bin/java
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ```
+* Save the file and quit
+
 
 
 
