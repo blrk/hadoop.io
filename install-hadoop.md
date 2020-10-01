@@ -164,7 +164,7 @@ nano .bashrc
 * add the following configuration at the end of the file
 ```
 #Hadoop Related Options
-export HADOOP_HOME=/home/hdoop/hadoop-3.2.1
+export HADOOP_HOME=/home/hduser/hadoop-3.2.1
 export HADOOP_INSTALL=$HADOOP_HOME
 export HADOOP_MAPRED_HOME=$HADOOP_HOME
 export HADOOP_COMMON_HOME=$HADOOP_HOME
@@ -181,8 +181,10 @@ hduser@ip-172-31-19-118:~$ source .bashrc
 hduser@ip-172-31-19-118:~$ echo $HADOOP_HOME 
 /home/hdoop/hadoop-3.2.1
 ```
-
-
+### Edit hadoop-env.sh File
+* The hadoop-env.sh file serves as a master file to configure YARN, HDFS, MapReduce, and Hadoop-related project settings.
+* When setting up a single node Hadoop cluster, you need to define which Java implementation is to be utilized. Use the previously created $HADOOP_HOME variable to access the hadoop-env.sh file:
+* 
 
 
 
