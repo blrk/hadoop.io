@@ -363,6 +363,8 @@ hduser@ip-172-31-19-118:~$ curl http://localhost:9870
 ```
 ### Access Hadoop UI from Browser
 * In your browser URl type the following address : http://\<public-ip-of-your-instance\>:9870
+* the following page appears
+![](https://github.com/blrk/hadoop.io/blob/master/img/hadoop-overview.png)
 
 
 
