@@ -150,7 +150,7 @@ hadoop-3.2.1  hadoop-3.2.1.tar.gz
 ```
 ### Setup hadoop
 * This setup, also called pseudo-distributed mode, allows each Hadoop daemon to run as a single Java process. A Hadoop environment is configured by editing a set of configuration files
-	** bashrc
+	* bashrc
 	** hadoop-env.sh
 	** core-site.xml
 	** hdfs-site.xml
