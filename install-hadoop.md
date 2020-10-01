@@ -315,7 +315,7 @@ SHUTDOWN_MSG: Shutting down NameNode at ip-172-31-19-118/172.31.19.118
 ### Start Hadoop Cluster
 * Navigate to the following location
 ``` bash
-hduser@ip-172-31-19-118:~$ cd hadoop-3.2.1/sbib/
+hduser@ip-172-31-19-118:~$ cd hadoop-3.2.1/sbin/
 ```
 * list the files
 ``` bash
