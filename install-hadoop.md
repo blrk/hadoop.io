@@ -252,6 +252,42 @@ vi $HADOOP_HOME/etc/hadoop/hdfs-site.xml
 </property>
 </configuration>
 ```
+### Edit mapred-site.xml File
+* Use the following command to access the mapred-site.xml file and define MapReduce values
+* open $HADOOP_HOME/etc/hadoop/mapred-site.xml in a editor
+``` bash
+vi $HADOOP_HOME/etc/hadoop/mapred-site.xml
+```
+* Add the following configuration to change the default MapReduce framework name value to yarn
+* Add the following configuration to the file
+```
+<configuration>
+<property>
+  <name>yarn.nodemanager.aux-services</name>
+  <value>mapreduce_shuffle</value>
+</property>
+<property>
+  <name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
+  <value>org.apache.hadoop.mapred.ShuffleHandler</value>
+</property>
+<property>
+  <name>yarn.resourcemanager.hostname</name>
+  <value>127.0.0.1</value>
+</property>
+<property>
+  <name>yarn.acl.enable</name>
+  <value>0</value>
+</property>
+<property>
+  <name>yarn.nodemanager.env-whitelist</name>   
+  <value>JAVA_HOME,HADOOP_COMMON_HOME,HADOOP_HDFS_HOME,HADOOP_CONF_DIR,CLASSPATH_PERPEND_DISTCACHE,HADOOP_YARN_HOME,HADOOP_MAPRED_HOME</value>
+</property>
+</configuration>
+```
+### Format HDFS NameNode
+* It is important to format the NameNode before starting Hadoop services for the first time
+
+
 
 
 
