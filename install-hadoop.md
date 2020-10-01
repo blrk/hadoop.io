@@ -80,4 +80,24 @@ ubuntu@ip-172-31-90-231:~$ exit
 logout
 Connection to localhost closed.
 ```
+### Update the isntance
+``` bash
+sudo apt install openjdk-8-jdk -y
+```
+### Install Java
+* use the following command to install java
+``` bash
+sudo apt install openjdk-8-jdk -y
+```
+* check the verison of java
+``` bash
+ubuntu@ip-172-31-90-231:~$ java -version
+openjdk version "1.8.0_265"
+OpenJDK Runtime Environment (build 1.8.0_265-8u265-b01-0ubuntu2~18.04-b01)
+OpenJDK 64-Bit Server VM (build 25.265-b01, mixed mode)
+ubuntu@ip-172-31-90-231:~$ javac -version
+javac 1.8.0_265
+```
+
+
 
