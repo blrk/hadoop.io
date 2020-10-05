@@ -47,33 +47,6 @@ See "man sudo_root" for details.
 ### Create a SSH keypair
 * run the following commands in the terminal of hadoop node
 ``` bash
-ubuntu@ip-172-31-90-231:~$ ssh-keygen 
-Generating public/private rsa key pair.
-Enter file in which to save the key (/home/ubuntu/.ssh/id_rsa): 
-Enter passphrase (empty for no passphrase): 
-Enter same passphrase again: 
-Your identification has been saved in /home/ubuntu/.ssh/id_rsa.
-Your public key has been saved in /home/ubuntu/.ssh/id_rsa.pub.
-The key fingerprint is:
-SHA256:ixxSdlhSB+TFIiAZuSUKieQDBUA1coJkuugthfU+8vk ubuntu@ip-172-31-90-231
-The key's randomart image is:
-+---[RSA 2048]----+
-|@@=B...o=oo      |
-|X B.o .=.o.      |
-|o+ =  +.o.       |
-|o.= .o .         |
-|o. .... S        |
-|. o .o o .       |
-| o o oo .        |
-|  . o o          |
-|     o.E         |
-+----[SHA256]-----+
-
-ubuntu@ip-172-31-90-231:~$ ls .ssh/
-authorized_keys  id_rsa  id_rsa.pub
-```
-### Add the public key to the authorized_keys file and verify 
-``` bash
 hduser@ip-172-31-19-118:~$ ssh-keygen 
 Generating public/private rsa key pair.
 Enter file in which to save the key (/home/hduser/.ssh/id_rsa): 
@@ -96,7 +69,9 @@ The key's randomart image is:
 |         +.+ . . |
 |       .o ooo .  |
 +----[SHA256]-----+
-
+```
+### Add the public key to the authorized_keys file and verify 
+``` bash
 hduser@ip-172-31-19-118:~$ ls .ssh/
 id_rsa  id_rsa.pub
 
