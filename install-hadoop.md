@@ -343,6 +343,13 @@ hduser@ip-172-31-19-118:~$ curl http://localhost:9870
 * the following page appears
 ![](https://github.com/blrk/hadoop.io/blob/master/img/hadoop-overview.png)
 
+### Install Maven
+* Run the following command
+``` bash
+sudo apt install maven -y
+```
+
+
 
 
 
